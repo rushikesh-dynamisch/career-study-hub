@@ -162,3 +162,5 @@
 // // this way we can define the classes in typescript and we can use it in our project.
 
 console.log("practice type called");
+
+export {}
