@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { useEffect } from 'react';
 import Practicejs from './components/Practicejs';
-import Practicetype from './components/Practicetype.ts';
+// import Practicetype from './components/Practicetype';
 import NewTsClass from './components/NewTsClass.tsx';
 function App() {
 //  useEffect(()=>{
