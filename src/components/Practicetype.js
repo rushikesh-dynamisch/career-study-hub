@@ -1,3 +1,4 @@
+
 // function Practicetype () {
 // // Unions in typescript.
 // // unions is like we can assign different types to a variable if we are not sure in between data is number or string or array type
@@ -6,6 +7,7 @@
 
 // console.log('practise type called');
 // var name: string | number = 'hrishikesh';
+
 
 // function add (name:string | number): string[] | string {
 //     if(true)
@@ -161,6 +163,14 @@
 
 // // this way we can define the classes in typescript and we can use it in our project.
 
-console.log("practice type called");
 
-export {}
+function Practicetype() {
+
+  return (
+    <div>
+       <h1>Learn  typescript</h1>
+    </div>
+  );
+}
+
+export default Practicetype;
