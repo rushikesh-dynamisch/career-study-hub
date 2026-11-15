@@ -11,7 +11,7 @@ jobs:
           cache: 'npm'
       - name: install dependencies
         run: npm install
-      - name: run EsLint in app
-        run: npm run lint
+      - name: run test cases
+        run: npm run test
       - name: create build
         run: npm run build
