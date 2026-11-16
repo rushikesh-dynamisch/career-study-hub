@@ -33,5 +33,5 @@ jobs:
         run: actions/upload-artifact@v4
         with:
           name: react-build
-          path: dist/
+          path: build/
           retention-days: 5
