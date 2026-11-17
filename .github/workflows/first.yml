@@ -48,5 +48,10 @@ jobs:
           aws-access-key-id: ${{ secrets.ACCESS_KEY }}
           aws-secret-access-key: ${{ secrets.SECRET_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
+      - name: download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: react-build
+          path: build/
       - name: upload file on s3 bucket
-        run: aws s3 sync ./build/ s3:${{ secrets.S3_BUCKET_NAME }} --delete
+        run: aws s3 sync ./build/ s3://${{ secrets.S3_BUCKET_NAME }} --delete
