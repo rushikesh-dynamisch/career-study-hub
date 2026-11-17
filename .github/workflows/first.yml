@@ -38,11 +38,15 @@ jobs:
 
   Deploy-job:
     needs: [Test-job, Build-job]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest 
     steps:
       - name: checkout code
         uses: actions/checkout@v4
-      - name: install vercel cli
-        run: npm install --global vercel
-      - name: deploy to vercel
-        run: vercel --prod --yes --token ${{ secrets.VERCEL_TOKEN }}
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.SECRET_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+      - name: upload file on s3 bucket
+        run: aws s3 sync ./build/ s3:${{ secrets.S3_BUCKET_NAME }} --delete
