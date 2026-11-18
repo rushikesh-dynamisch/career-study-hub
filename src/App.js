@@ -16,8 +16,8 @@ import './App.css';
 
 import React, { useState } from 'react';
 import {
-  ArrowRight, ArrowUpRight, Menu, X, Zap, Settings2, ShieldCheck,
-  Wrench, Factory, CheckCircle2, Phone, Mail, MapPin, ChevronRight,
+  ArrowRight, ArrowUpRight, Menu, X, Zap, Settings2,
+  Wrench, Factory, CheckCircle2, Phone, Mail, MapPin,
   MoveRight, Sparkles
 } from 'lucide-react';
 
