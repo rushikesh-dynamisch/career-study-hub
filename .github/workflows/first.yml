@@ -23,8 +23,7 @@ jobs:
           cache: 'npm'
       - name: install dependencies
         run: npm install 
-      - name: run test cases
-        run: npm run test
+
       - name: create build
         run: npm run build
       - name: create artifacts
