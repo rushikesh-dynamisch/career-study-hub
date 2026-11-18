@@ -11,8 +11,6 @@ jobs:
           cache: 'npm'
       - name: install dependencies
         run: npm install 
-      - name: run test cases
-        run: npm run test
     
   Build-job:
     needs: [Test-job]
@@ -55,3 +53,63 @@ jobs:
           path: build/
       - name: upload file on s3 bucket
         run: aws s3 sync ./build/ s3://${{ secrets.S3_BUCKET_NAME }} --delete
+
+
+
+# name: "first workflow"
+# on: push
+# jobs:
+#   Test-job:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: checkout code
+#         uses: actions/checkout@v4
+#         with:
+#           node-version: 24
+#           cache: 'npm'
+#       - name: install dependencies
+#         run: npm install 
+#       - name: run test cases
+#         run: npm run test
+    
+#   Build-job:
+#     needs: [Test-job]
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: checkout code
+#         uses: actions/checkout@v4
+#         with:
+#           node-version: 24
+#           cache: 'npm'
+#       - name: install dependencies
+#         run: npm install 
+#       - name: run test cases
+#         run: npm run test
+#       - name: create build
+#         run: npm run build
+#       - name: create artifacts
+#         uses: actions/upload-artifact@v4
+#         with:
+#           name: react-build
+#           path: build/
+#           retention-days: 5
+
+#   Deploy-job:
+#     needs: [Test-job, Build-job]
+#     runs-on: ubuntu-latest 
+#     steps:
+#       - name: checkout code
+#         uses: actions/checkout@v4
+#       - name: configure aws credentials
+#         uses: aws-actions/configure-aws-credentials@v2
+#         with:
+#           aws-access-key-id: ${{ secrets.ACCESS_KEY }}
+#           aws-secret-access-key: ${{ secrets.SECRET_KEY }}
+#           aws-region: ${{ secrets.AWS_REGION }}
+#       - name: download build artifact
+#         uses: actions/download-artifact@v4
+#         with:
+#           name: react-build
+#           path: build/
+#       - name: upload file on s3 bucket
+#         run: aws s3 sync ./build/ s3://${{ secrets.S3_BUCKET_NAME }} --delete
